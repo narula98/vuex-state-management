@@ -8,10 +8,10 @@
       <div class="menu" v-if="showMenu" @click="signOut()">Sign Out</div>
     </span>
     <span v-if="!user">
-      <router-link class="nav-link" :to="{name: 'Sign-in'}">Sign In</router-link>
+                    <router-link class="nav-link" :to="{name: 'Sign-in'}">Sign In</router-link>
     </span>
     <span v-if="!user">
-      <router-link class="nav-link" :to="{name: 'Register'}">Register</router-link>
+<router-link class="nav-link" :to="{name: 'Register'}">Register</router-link>
     </span>
   </div>
 </template>
