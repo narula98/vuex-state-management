@@ -41,16 +41,23 @@ const store = createStore({
         description: 'Everything you need for traction on that thrilling ice climb.',
         image: 'mega-pokey-kit.jpg',
       }],
+      cartItems: [],
     };
   },
   getters: {
     filteredProducts(state) {
       return (filter) => filterProducts(filter, state.products);
     },
+    calculatePrice(state) {
+      return state.cartItems.reduce((curr, next) => curr + next.price, 0);
+    },
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
+    },
+    setCartItems(state, item) {
+      state.cartItems = [...state.cartItems, item];
     },
   },
 });

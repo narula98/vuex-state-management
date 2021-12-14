@@ -18,7 +18,7 @@
         </div>
         <div class="price-buy">
           <span class="price">${{product.price.toFixed(2)}}</span>
-          <span><button class="primary buy">Buy</button></span>
+          <span><button class="primary buy" @click="addToCard(product)">Buy</button></span>
         </div>
       </div>
     </div>
@@ -37,6 +37,9 @@ export default {
   methods: {
     setFilter(filter) {
       this.filter = filter;
+    },
+    addToCard(product) {
+      this.$store.commit('setCartItems', product);
     },
   },
   computed: {
