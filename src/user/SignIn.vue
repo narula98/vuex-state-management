@@ -41,7 +41,7 @@ export default {
           email: this.email,
           password: this.password,
         };
-        await this.$store.dispatch('signIn', userLogin);
+        await this.$store.dispatch('users/signIn', userLogin);
         this.$router.push('/products');
       } catch {
         this.signInError = true;

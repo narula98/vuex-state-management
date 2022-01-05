@@ -19,7 +19,7 @@
   </div>
   <div class="total-line">
     <span>Cart Total:</span>
-    <span class="total">${{cartTotal.toFixed(2)}}</span>
+    <span class="total">${{cartTotal}}</span>
   </div>
 </template>
 
@@ -34,10 +34,10 @@ export default {
   },
   computed: {
     cartItems() {
-      return this.$store.state.cartItems;
+      return this.$store.state.products.cartItems;
     },
     cartTotal() {
-      return this.$store.getters.calculatePrice;
+      return this.$store.getters['products/calculatePrice'];
     },
   },
 };

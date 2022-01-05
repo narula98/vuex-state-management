@@ -58,7 +58,7 @@ export default {
         email: this.email,
         password: this.password,
       };
-      this.$store.dispatch('resigterUser', user);
+      this.$store.dispatch('users/resigterUser', user);
       this.$router.push('/products');
     },
     cancel() {

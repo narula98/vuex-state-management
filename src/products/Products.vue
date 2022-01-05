@@ -35,19 +35,19 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch('fetchProducts');
+    this.$store.dispatch('products/fetchProducts');
   },
   methods: {
     setFilter(filter) {
       this.filter = filter;
     },
     addToCart(product) {
-      this.$store.commit('setCartItems', product);
+      this.$store.commit('products/setCartItems', product);
     },
   },
   computed: {
     visibleProducts() {
-      return this.$store.getters.filteredProducts(this.filter);
+      return this.$store.getters['products/filteredProducts'](this.filter);
     },
   },
 };
