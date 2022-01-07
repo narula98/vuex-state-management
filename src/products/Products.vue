@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'Products',
@@ -38,16 +39,19 @@ export default {
     this.$store.dispatch('products/fetchProducts');
   },
   methods: {
+    ...mapMutations('products', ['setCartItems']),
     setFilter(filter) {
       this.filter = filter;
     },
     addToCart(product) {
-      this.$store.commit('products/setCartItems', product);
+      this.setCartItems(product);
     },
   },
   computed: {
+    ...mapGetters('products', ['filteredProducts']),
     visibleProducts() {
-      return this.$store.getters['products/filteredProducts'](this.filter);
+      /*  return this.$store.getters['products/filteredProducts'](this.filter); */
+      return this.filteredProducts(this.filter);
     },
   },
 };

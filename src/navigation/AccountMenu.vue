@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   data() {
     return {
@@ -24,9 +26,7 @@ export default {
     };
   },
   computed: {
-    user() {
-      return this.$store.state.users.user;
-    },
+    ...mapState('users', ['user']),
   },
   methods: {
     signOut() {

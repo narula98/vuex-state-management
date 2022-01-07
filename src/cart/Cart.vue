@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'Cart',
@@ -33,9 +34,7 @@ export default {
     };
   },
   computed: {
-    cartItems() {
-      return this.$store.state.products.cartItems;
-    },
+    ...mapState('products', ['cartItems']),
     cartTotal() {
       return this.$store.getters['products/calculatePrice'];
     },

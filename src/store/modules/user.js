@@ -21,7 +21,7 @@ export default {
 
   actions: {
 
-    resigterUser({ commit }, user) {
+    registerUser({ commit }, user) {
       return StoreService.registerUser(user).then((resp) => commit('setUser', resp)).catch((e) => {
         throw new Error(e);
       });
